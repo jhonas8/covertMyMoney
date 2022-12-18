@@ -4,7 +4,7 @@ const URL = "https://economia.awesomeapi.com.br/last/";
 
 const getCotation = async (currencyConversion) => {
   try {
-    const response = await axios.get(`${URL}/USD-BRL`);
+    const response = await axios.get(`${URL}/${currencyConversion}`);
 
     return response.data;
   } catch (err) {
