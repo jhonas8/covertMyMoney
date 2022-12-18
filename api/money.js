@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const URL = "https://economia.awesomeapi.com.br/last/";
+const URL = "https://economia.awesomeapi.com.br/last";
 
 const getCotation = async (currencyConversion) => {
   try {
@@ -14,4 +14,5 @@ const getCotation = async (currencyConversion) => {
 
 module.exports = {
   getCotation,
+  URL,
 };
