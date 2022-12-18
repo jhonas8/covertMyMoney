@@ -5,13 +5,18 @@ const port = 3000;
 const path = require("path");
 
 const conversionLib = require("./lib/conversion");
+const api = require("./api/money");
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (req, res) => {
-  res.render("home", { name: "jhonas8" });
+  api.getCotation("USD-BRL").then((data) => {
+    const cotation = data["USDBRL"].bid;
+
+    res.render("home", { name: "jhonas8", cotation });
+  });
 });
 
 app.get("/convert", (req, res) => {
